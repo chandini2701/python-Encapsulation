@@ -1,0 +1,514 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --cream: #faf2ec;
+  --white: #ffffff;
+  --ink: #1b1917;
+  --muted: #8f8f8f;
+  --lavender: #9894a8;
+  --mist: #e5e5e5;
+  --blue: #4b72f3;
+  --violet: #2b3ea7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+header {
+  background: var(--cream);
+  border-bottom: 1px solid var(--lavender);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+nav h2,
+footer h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+nav h2 span,
+footer h2 span {
+  color: var(--lavender);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+/* HERO */
+
+.hero {
+  max-width: 1200px;
+  min-height: 550px;
+  margin: auto;
+  padding: 65px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.tag {
+  color: var(--lavender);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 1.08;
+  margin: 22px 0;
+  color: var(--ink);
+}
+
+.hero h1 span {
+  color: var(--blue);
+}
+
+.hero-content > p:not(.tag) {
+  max-width: 500px;
+  color: #665f5b;
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+
+.main-btn {
+  display: inline-block;
+  background: var(--blue);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.main-btn:hover {
+  background: #3d60d6;
+}
+
+/* CODE CARDS */
+
+.hero-card,
+.info-card,
+.modifier-card,
+.example-box,
+.benefit-card,
+.quiz-card {
+  background: var(--white);
+  border: 1px solid var(--mist);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.card-top {
+  color: var(--lavender);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+pre {
+  background: #f7f5f3;
+  color: var(--ink);
+  border: 1px solid var(--mist);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.8;
+  font-family: Consolas, monospace;
+}
+
+.output,
+.result {
+  display: block;
+  color: var(--violet);
+  background: #f0eff6;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* SECTIONS */
+
+.section {
+  max-width: 1200px;
+  padding: 64px 30px;
+  margin: auto;
+}
+
+.section-heading {
+  margin-bottom: 32px;
+}
+
+.section-heading > p:first-child {
+  color: var(--lavender);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.08;
+  color: var(--ink);
+  margin: 12px 0;
+}
+
+.section-heading > p:last-child {
+  color: #77716d;
+}
+
+.content-card {
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid var(--mist);
+  border-radius: 12px;
+}
+
+.content-card p {
+  margin-bottom: 15px;
+}
+
+.highlight {
+  background: #f0eff6;
+  border-left: 3px solid var(--blue);
+  padding: 18px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+/* TWO COLUMN */
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.info-card h3,
+.example-box h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 27px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+/* ACCESS TYPES */
+
+.modifiers {
+  max-width: none;
+  background: #f3ede9;
+}
+
+.modifiers .section-heading,
+.modifier-grid {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modifier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.modifier-card {
+  padding: 22px;
+}
+
+.number {
+  color: var(--lavender);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.modifier-card h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.modifier-card h4 {
+  color: var(--blue);
+  font-family: Consolas, monospace;
+  margin-bottom: 12px;
+}
+
+.modifier-card p {
+  font-size: 14px;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+/* EXAMPLES */
+
+.example-box {
+  margin-bottom: 22px;
+  padding: 26px;
+}
+
+.example-box h3 {
+  color: var(--ink);
+}
+
+.example-box > p {
+  margin-top: 10px;
+}
+
+.output-box {
+  background: #f0eff6;
+  border-radius: 12px;
+  padding: 17px;
+  margin-top: 15px;
+  color: var(--violet);
+}
+
+.output-box p {
+  margin-top: 5px;
+}
+
+/* ADVANTAGES */
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.benefit-card {
+  padding: 22px;
+}
+
+.benefit-card span {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.benefit-card h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 23px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.benefit-card p {
+  color: #77716d;
+  font-size: 14px;
+}
+
+/* INTERVIEW QUESTIONS */
+
+.interview {
+  max-width: none;
+  background: #f3ede9;
+}
+
+.interview .section-heading,
+.interview details {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.interview details {
+  background: var(--white);
+  padding: 18px 22px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--mist);
+}
+
+.interview summary {
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.interview details p {
+  margin-top: 12px;
+  color: #77716d;
+}
+
+/* QUIZ */
+
+.quiz-card {
+  max-width: 700px;
+  padding: 28px;
+}
+
+.quiz-card h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 27px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: grid;
+  gap: 12px;
+}
+
+.options button {
+  text-align: left;
+  padding: 14px;
+  background: var(--white);
+  border: 1px solid var(--lavender);
+  border-radius: 12px;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.options button:hover:not(:disabled) {
+  background: #f0eff6;
+}
+
+.options button:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.options button.correct {
+  background: #e9f2e8;
+  border-color: #779a73;
+}
+
+.options button.wrong {
+  background: #f7e8e6;
+  border-color: #c87a73;
+}
+
+#feedback {
+  margin-top: 18px;
+  font-weight: 600;
+}
+
+#score {
+  margin-top: 15px;
+  color: var(--violet);
+  font-weight: 600;
+}
+
+#nextBtn {
+  margin-top: 18px;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  background: #eee6e0;
+  padding: 40px 20px;
+  color: #665f5b;
+}
+
+footer h2 {
+  margin-bottom: 10px;
+}
+
+footer p {
+  font-size: 13px;
+  margin: 5px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .modifier-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .benefit-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero {
+    padding: 45px 20px;
+  }
+
+  .section {
+    padding: 45px 20px;
+  }
+
+  .two-column,
+  .modifier-grid,
+  .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+}

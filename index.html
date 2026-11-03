@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Encapsulation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h2>Py<span>Learn</span></h2>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#concept">Concept</a>
+          <a href="#modifiers">Access Types</a>
+          <a href="#examples">Examples</a>
+          <a href="#quiz">Quiz</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="tag">PYTHON • OBJECT ORIENTED PROGRAMMING</p>
+        <h1>Learn <span>Encapsulation</span><br />in Python</h1>
+        <p>
+          Understand how encapsulation works in Python, how to protect data, and
+          how to access private variables using methods.
+        </p>
+        <a href="#concept" class="main-btn">Explore Concept ↓</a>
+      </div>
+
+      <div class="hero-card">
+        <div class="card-top">PYTHON CODE</div>
+        <pre><code>class Student:
+
+    def __init__(self):
+        self.__marks = 95
+
+    def get_marks(self):
+        return self.__marks
+
+s = Student()
+print(s.get_marks())</code></pre>
+        <div class="output">Output: 95</div>
+      </div>
+    </section>
+
+    <section class="section" id="concept">
+      <div class="section-heading">
+        <p>01 / INTRODUCTION</p>
+        <h2>What is Encapsulation?</h2>
+      </div>
+
+      <div class="content-card">
+        <p>
+          Encapsulation is one of the four fundamental principles of
+          Object-Oriented Programming (OOP).
+        </p>
+
+        <p>
+          It is the process of combining data (variables) and methods
+          (functions) into a single unit called a class.
+        </p>
+
+        <p>
+          It also helps control access to data and prevents accidental
+          modification of important information.
+        </p>
+
+        <div class="highlight">
+          <strong>Simple Definition:</strong>
+          Encapsulation means wrapping data and methods together inside a class
+          and controlling access to that data.
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div class="info-card">
+          <h3>Without Encapsulation</h3>
+          <p>
+            Data can be modified directly, which may lead to incorrect or
+            unexpected values.
+          </p>
+          <pre><code>balance = 5000
+balance = -10000
+
+print(balance)</code></pre>
+          <span class="result">Output: -10000</span>
+        </div>
+
+        <div class="info-card">
+          <h3>With Encapsulation</h3>
+          <p>
+            Data is controlled through methods that validate the values before
+            changing them.
+          </p>
+          <pre><code>class Account:
+    def __init__(self):
+        self.__balance = 5000
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount</code></pre>
+          <span class="result">Data is controlled!</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section modifiers" id="modifiers">
+      <div class="section-heading">
+        <p>02 / ACCESS CONTROL</p>
+        <h2>Access Types in Python</h2>
+        <p>Python uses three naming conventions for attributes.</p>
+      </div>
+
+      <div class="modifier-grid">
+        <div class="modifier-card public">
+          <span class="number">01</span>
+          <h3>Public</h3>
+          <h4>self.name</h4>
+          <p>
+            Public variables can be accessed from inside and outside the class.
+          </p>
+          <pre><code>class Student:
+    def __init__(self):
+        self.name = "Chandini"
+
+s = Student()
+print(s.name)</code></pre>
+          <span class="result">Output: Chandini</span>
+        </div>
+
+        <div class="modifier-card protected">
+          <span class="number">02</span>
+          <h3>Protected</h3>
+          <h4>self._name</h4>
+          <p>
+            A single underscore indicates that a variable is intended for
+            internal use and subclasses.
+          </p>
+          <pre><code>class Student:
+    def __init__(self):
+        self._marks = 90
+
+s = Student()
+print(s._marks)</code></pre>
+          <span class="result">Output: 90</span>
+          <p class="note">
+            Note: This is a convention, not strict access protection.
+          </p>
+        </div>
+
+        <div class="modifier-card private">
+          <span class="number">03</span>
+          <h3>Private</h3>
+          <h4>self.__name</h4>
+          <p>
+            Double underscore triggers name mangling. It discourages direct
+            access from outside.
+          </p>
+          <pre><code>class Student:
+    def __init__(self):
+        self.__marks = 95
+
+    def show(self):
+        return self.__marks
+
+s = Student()
+print(s.show())</code></pre>
+          <span class="result">Output: 95</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="examples">
+      <div class="section-heading">
+        <p>03 / PRACTICAL EXAMPLES</p>
+        <h2>How Encapsulation Works</h2>
+      </div>
+
+      <div class="example-box">
+        <h3>Example 1: Getter and Setter Methods</h3>
+        <p>
+          A getter method retrieves private data. A setter method modifies
+          private data after validation.
+        </p>
+
+        <pre><code>class Employee:
+
+    def __init__(self, salary):
+        self.__salary = salary
+
+    # Getter
+    def get_salary(self):
+        return self.__salary
+
+    # Setter
+    def set_salary(self, salary):
+        if salary > 0:
+            self.__salary = salary
+        else:
+            print("Invalid Salary")
+
+
+emp = Employee(30000)
+
+print(emp.get_salary())
+
+emp.set_salary(40000)
+
+print(emp.get_salary())</code></pre>
+
+        <div class="output-box">
+          <strong>Output:</strong>
+          <p>30000</p>
+          <p>40000</p>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <h3>Example 2: Bank Account</h3>
+        <p>
+          The account balance is private. Users can deposit and withdraw money
+          using methods.
+        </p>
+
+        <pre><code>class BankAccount:
+
+    def __init__(self, balance):
+        self.__balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print("Deposit Successful")
+        else:
+            print("Invalid Amount")
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            print("Withdrawal Successful")
+        else:
+            print("Insufficient Balance")
+
+    def get_balance(self):
+        return self.__balance
+
+
+account = BankAccount(10000)
+
+account.deposit(2000)
+account.withdraw(3000)
+
+print("Balance:", account.get_balance())</code></pre>
+
+        <div class="output-box">
+          <strong>Output:</strong>
+          <p>Deposit Successful</p>
+          <p>Withdrawal Successful</p>
+          <p>Balance: 9000</p>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <h3>Example 3: Name Mangling</h3>
+        <p>
+          Python internally changes the name of a double-underscore attribute to
+          include the class name.
+        </p>
+
+        <pre><code>class Student:
+
+    def __init__(self):
+        self.__name = "Chandini"
+
+
+s = Student()
+
+# Direct access raises AttributeError
+# print(s.__name)
+
+# Name-mangled access
+print(s._Student__name)</code></pre>
+
+        <div class="output-box">
+          <strong>Output:</strong>
+          <p>Chandini</p>
+        </div>
+
+        <p class="note">
+          Important: Name mangling does not make data completely private. It
+          mainly prevents accidental access and name conflicts in subclasses.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="benefits">
+      <div class="section-heading">
+        <p>04 / ADVANTAGES</p>
+        <h2>Advantages of Encapsulation</h2>
+      </div>
+
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <span>01</span>
+          <h3>Data Protection</h3>
+          <p>Helps prevent accidental changes to important data.</p>
+        </div>
+
+        <div class="benefit-card">
+          <span>02</span>
+          <h3>Data Validation</h3>
+          <p>Allows validation before modifying the values.</p>
+        </div>
+
+        <div class="benefit-card">
+          <span>03</span>
+          <h3>Code Reusability</h3>
+          <p>Organizes related data and methods within classes.</p>
+        </div>
+
+        <div class="benefit-card">
+          <span>04</span>
+          <h3>Maintainability</h3>
+          <p>Makes code easier to understand and maintain.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section interview">
+      <div class="section-heading">
+        <p>05 / INTERVIEW PREPARATION</p>
+        <h2>Important Questions</h2>
+      </div>
+
+      <details>
+        <summary>1. What is Encapsulation?</summary>
+        <p>
+          Encapsulation is an OOP principle that combines data and methods into
+          a class and controls access to the data.
+        </p>
+      </details>
+
+      <details>
+        <summary>2. What are the access modifiers in Python?</summary>
+        <p>
+          Public, protected and private are the three commonly used access
+          conventions in Python.
+        </p>
+      </details>
+
+      <details>
+        <summary>3. What is a getter method?</summary>
+        <p>A getter method is used to retrieve the value of an attribute.</p>
+      </details>
+
+      <details>
+        <summary>4. What is a setter method?</summary>
+        <p>
+          A setter method is used to modify an attribute, often after validating
+          the new value.
+        </p>
+      </details>
+
+      <details>
+        <summary>5. Does Python support private variables?</summary>
+        <p>
+          Python supports name mangling using double underscores, but it does
+          not provide strict private access control.
+        </p>
+      </details>
+
+      <details>
+        <summary>6. What is the difference between _name and __name?</summary>
+        <p>
+          A single underscore indicates an internal-use convention. A double
+          underscore triggers name mangling.
+        </p>
+      </details>
+    </section>
+
+    <section class="section quiz" id="quiz">
+      <div class="section-heading">
+        <p>06 / TEST YOUR KNOWLEDGE</p>
+        <h2>Python Encapsulation Quiz</h2>
+      </div>
+
+      <div class="quiz-card">
+        <h3 id="question">1. What is Encapsulation?</h3>
+
+        <div id="options" class="options">
+          <button onclick="checkAnswer(0)">
+            A. Combining data and methods
+          </button>
+          <button onclick="checkAnswer(1)">B. Creating loops</button>
+          <button onclick="checkAnswer(2)">C. Defining functions only</button>
+          <button onclick="checkAnswer(3)">D. Importing modules</button>
+        </div>
+
+        <p id="feedback"></p>
+        <button id="nextBtn" class="main-btn" onclick="nextQuestion()" hidden>
+          Next Question →
+        </button>
+
+        <p id="score"></p>
+      </div>
+    </section>
+
+    <footer>
+      <h2>Py<span>Learn</span></h2>
+      <p>Learn Python OOP Concepts Step by Step.</p>
+      <p>© 2026 Python Encapsulation Learning Page</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
